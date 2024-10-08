@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Filter UI</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./src/output.css" />
+  </head>
+  <body>
+    <nav class="p-2 bg-Red flex items-center justify-around">
+      <input
+        id="search"
+        type="text"
+        placeholder="Search here"
+        class="border-Red rounded-lg p-2 focus:md:w-4/5 outline-none placeholder:font-bold"
+      />
+      <div id="cart" class="relative cursor-pointer">
+        <i class="fa fa-cart-shopping text-white"></i>
+        <span
+          id="count"
+          class="h-4 w-4 bg-white text-Red rounded-lg absolute flex items-center justify-center -top-1/2 right-1/2"
+          >0</span
+        >
+      </div>
+    </nav>
+
+    <main class="p-5">
+      <h1 class="font-semibold text-4xl mb-5">Desserts</h1>
+      <div class="w-full grid md:grid-cols-12 gap-10">
+        <div
+          id="products-container"
+          class="grid md:col-span-8 sm:grid-cols-2 md:grid-cols-3 bg-Rose-50 p-6 gap-10 rounded-sm"
+        >
+          
+          
+        </div>
+
+        <div
+          id="orders-container"
+          class="bg-white shadow-lg rounded-sm md:grid md:col-span-4 h-auto"
+        >
+          <div id="orders" class="p-5 space-y-5">
+            <h1 class="text-Red font-semibold text-3xl px-4">
+              Your Cart <span id="order-count">(0)</span>
+            </h1>
+
+            <div id="empty-order" class="">
+              <img
+                src="/assets/images/illustration-empty-cart.svg"
+                alt=""
+                class="w-full h-40"
+              />
+              <p class="text-center text-Rose-500 font-bold">
+                Your added items will appear here
+              </p>
+            </div>
+
+            <div
+              id="order"
+              class="flex items-center justify-between cursor-pointer m-4 p-4 rounded-md shadow-md hover:shadow-lg transition-all"
+            >
+              <div id="order-text" class="">
+                <h1 class="font-bold">Classic Tiramisu</h1>
+                <p class="text-Rose-500 flex gap-4">
+                  <span class="text-Red font-semibold">1x</span> @$5.50
+                </p>
+              </div>
+              <button class="hover:scale-125 transition-all">
+                <img
+                  id="remove-order"
+                  src="/assets/images/icon-remove-item.svg"
+                  alt=""
+                  class="border-2 rounded-full p-[2px]"
+                />
+              </button>
+            </div>
+
+            <div id="order-total" class="flex justify-between items-center p-5">
+              <p class="text-Rose-500">Order Total</p>
+              <p id="total-price" class="font-bold text-2xl">$46.50</p>
+            </div>
+
+            <div id="order-button p-5">
+              <button
+                class="text-white bg-Red rounded-full py-3 w-full font-bold md:text-xl transition hover:border-Red border hover:bg-transparent hover:text-Red"
+              >
+                Confirm Order
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script type="module" src="/js/index.js"></script>
+  </body>
+</html>
