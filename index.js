@@ -5,6 +5,8 @@ const ProductsContainer = document.getElementById("products-container");
 const cartBTn = document.querySelectorAll(".btn");
 const cartCount = document.getElementById("count");
 const orderCount = document.getElementById("order-count");
+let orderItems = document.getElementById("order-items");
+console.log(orders);
 const emptyOrder = document.getElementById("empty-order");
 
 // Initialize products
@@ -26,29 +28,25 @@ async function getProducts() {
 function receiveProducts(products) {
   return products.map((product) => product);
 }
-await getProducts()
+await getProducts();
 
+productsArray.forEach((product) => {
+  let productEl = createProductsEl(product);
+  ProductsContainer.appendChild(productEl);
+  productsElements.push(productEl);
+});
 
-  productsArray.forEach((product) => {
-    let productEl = createProductsEl(product);
-    ProductsContainer.appendChild(productEl);
-    productsElements.push(productEl);
-  });
-
-  console.log(productsElements.length);
-
-
-
+console.log(productsElements.length);
 
 function createProductsEl(product) {
   let productEl = document.createElement("div");
-  productEl.className = "shadow-lg p-2 rounded-md";
+  productEl.className = "shadow-lg p-2 rounded-md h-fit";
   productEl.innerHTML = `          <div
               id="product-item"
-              class="border rounded-md relative mb-10 cursor-pointer hover:border-Red transition flex flex-col items-center"
+              class="border rounded-md relative mb-10 cursor-pointer hover:border-Red transition flex flex-col items-center h-auto "
             >
               <img
-                src="${product.image.mobile}"
+                src="${product.image.desktop}"
                 alt=""
                 class="w-full"
               />
@@ -100,7 +98,7 @@ function filterProducts() {
     let product = productsArray[index];
     console.log(product);
 
-    let matchProduct = product.name.toLowerCase().includes(searchTerm)
+    let matchProduct = product.name.toLowerCase().includes(searchTerm);
 
     if (matchProduct) {
       productEl.classList.remove("hidden");
@@ -111,4 +109,3 @@ function filterProducts() {
 }
 
 searchInput.addEventListener("input", filterProducts);
-
