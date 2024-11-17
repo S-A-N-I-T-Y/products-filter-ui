@@ -19,16 +19,18 @@ async function getProducts() {
   try {
     let response = await fetch("data.json");
     let data = await response.json();
-    productsArray = receiveProducts(data);
+    productsArray = data;
   } catch (error) {
     console.error(error);
   }
 }
 
-function receiveProducts(products) {
-  return products.map((product) => product);
-}
+// function receiveProducts(products) {
+//   return products.map((product) => product);
+// }
 await getProducts();
+
+console.log(productsArray);
 
 productsArray.forEach((product) => {
   let productEl = createProductsEl(product);
